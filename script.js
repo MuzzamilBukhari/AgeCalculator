@@ -10,8 +10,15 @@ const calculateAge = () => {
     let birthDateInArray = dobValue.split("-");
     let yearsDiff = todayDate.getFullYear() - birthDateInArray[0];
     let monthsDiff = todayDate.getMonth()+1 - birthDateInArray[1];
-    console.log("this month ", todayDate.getMonth())
+    if (monthsDiff < 0){
+        monthsDiff += 12;
+        yearsDiff--;
+    }
     let daysDiff = todayDate.getDate() - birthDateInArray[2];
+    if (daysDiff < 0){
+        daysDiff += 30;
+        monthsDiff--;
+    }
     displayMsg(yearsDiff, monthsDiff, daysDiff);
 }
 // console.log(date);
